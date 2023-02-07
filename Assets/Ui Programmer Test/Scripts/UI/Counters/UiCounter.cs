@@ -22,7 +22,9 @@ namespace UiProgrammerTest.Scripts.UI.Counters
 
         protected virtual void Start()
         {
-            SetValueInternal();
+            // set value immidiatly
+            _targetValue = _currentValue = Value;
+            _text.text = Value.ToString();
         }
 
         private void OnEnable()
