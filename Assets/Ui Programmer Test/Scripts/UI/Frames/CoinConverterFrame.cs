@@ -18,7 +18,6 @@ namespace UiProgrammerTest.Scripts.UI.Frames
             _potentialCredits.text = "0";
 
             _inputField.onValueChanged.AddListener(ValidateInput);
-            //_inputField.onEndEdit.AddListener(ValidateInput);
             _buyButton.onClick.AddListener(Convert);
             GameModel.ModelChanged += ValidateInput;
             ValidateInput();
@@ -68,6 +67,7 @@ namespace UiProgrammerTest.Scripts.UI.Frames
         private void Convert()
         {
             GameModel.ConvertCoinToCredit(_convrtCoins);
+            _inputField.text = string.Empty;
         }
     }
 }

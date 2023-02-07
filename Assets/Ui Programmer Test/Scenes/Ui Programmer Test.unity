@@ -910,16 +910,48 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1489946576853054998, guid: c426fce6bb3090547981a481c803be0b, type: 3}
-      propertyPath: m_Color.b
+    - target: {fileID: 1489946576853054999, guid: c426fce6bb3090547981a481c803be0b, type: 3}
+      propertyPath: m_Colors.m_NormalColor.b
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1489946576853054998, guid: c426fce6bb3090547981a481c803be0b, type: 3}
-      propertyPath: m_Color.g
-      value: 0.8333334
+    - target: {fileID: 1489946576853054999, guid: c426fce6bb3090547981a481c803be0b, type: 3}
+      propertyPath: m_Colors.m_NormalColor.g
+      value: 0.8352941
       objectReference: {fileID: 0}
-    - target: {fileID: 1489946576853054998, guid: c426fce6bb3090547981a481c803be0b, type: 3}
-      propertyPath: m_Color.r
+    - target: {fileID: 1489946576853054999, guid: c426fce6bb3090547981a481c803be0b, type: 3}
+      propertyPath: m_Colors.m_PressedColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1489946576853054999, guid: c426fce6bb3090547981a481c803be0b, type: 3}
+      propertyPath: m_Colors.m_PressedColor.g
+      value: 0.41764706
+      objectReference: {fileID: 0}
+    - target: {fileID: 1489946576853054999, guid: c426fce6bb3090547981a481c803be0b, type: 3}
+      propertyPath: m_Colors.m_PressedColor.r
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1489946576853054999, guid: c426fce6bb3090547981a481c803be0b, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1489946576853054999, guid: c426fce6bb3090547981a481c803be0b, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.g
+      value: 0.8352941
+      objectReference: {fileID: 0}
+    - target: {fileID: 1489946576853054999, guid: c426fce6bb3090547981a481c803be0b, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1489946576853054999, guid: c426fce6bb3090547981a481c803be0b, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1489946576853054999, guid: c426fce6bb3090547981a481c803be0b, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0.8352941
+      objectReference: {fileID: 0}
+    - target: {fileID: 1489946576853054999, guid: c426fce6bb3090547981a481c803be0b, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7598907746480891826, guid: c426fce6bb3090547981a481c803be0b, type: 3}
@@ -989,6 +1021,7 @@ GameObject:
   - component: {fileID: 222161880}
   - component: {fileID: 222161882}
   - component: {fileID: 222161881}
+  - component: {fileID: 222161883}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -1006,13 +1039,13 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 170770114}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1054,6 +1087,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 222161879}
   m_CullTransparentMesh: 1
+--- !u!114 &222161883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 222161879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AspectMode: 4
+  m_AspectRatio: 2.3897316
 --- !u!1 &283646418
 GameObject:
   m_ObjectHideFlags: 0
