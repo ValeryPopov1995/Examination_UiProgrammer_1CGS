@@ -170,7 +170,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5370384751201158644, guid: bfc89142b315eb947b4d3599a4ee3c1d, type: 3}
       propertyPath: m_Name
-      value: FrameReserve - MedPack
+      value: FrameReserve -
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects:

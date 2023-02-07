@@ -104,6 +104,24 @@ public static class GameModel
                     }
                     break;
                 }
+                case "consumable-for-coin":
+                {
+                    if (!ConsumablesPrice.TryGetValue(operation.ConsumableType, out var consumableConfig))
+                    {
+                        HandleOperationComplete(operation.Guid, "Consumable config not found!");
+                    }
+                    else if (CoinCount < consumableConfig.CoinPrice)
+                    {
+                        HandleOperationComplete(operation.Guid, "Not enough coin!");
+                    }
+                    else
+                    {
+                        CoinCount -= consumableConfig.CoinPrice;
+                        _consumableCount[operation.ConsumableType]++;
+                        HandleOperationComplete(operation.Guid);
+                    }
+                    break;
+                }
                 case "consumable-for-credit":
                 {
                     if (!ConsumablesPrice.TryGetValue(operation.ConsumableType, out var consumableConfig))
@@ -117,24 +135,6 @@ public static class GameModel
                     else
                     {
                         CreditCount -= consumableConfig.CreditPrice;
-                        _consumableCount[operation.ConsumableType]++;
-                        HandleOperationComplete(operation.Guid);
-                    }
-                    break;
-                }
-                case "consumable-for-gold":
-                {
-                    if (!ConsumablesPrice.TryGetValue(operation.ConsumableType, out var consumableConfig))
-                    {
-                        HandleOperationComplete(operation.Guid, "Consumable config not found!");
-                    }
-                    if (CoinCount < consumableConfig.CoinPrice)
-                    {
-                        HandleOperationComplete(operation.Guid, "Not enough gold!");
-                    }
-                    else
-                    {
-                        CoinCount -= consumableConfig.CoinPrice;
                         _consumableCount[operation.ConsumableType]++;
                         HandleOperationComplete(operation.Guid);
                     }
@@ -158,7 +158,20 @@ public static class GameModel
         return guid;
     }
     
-    public static Guid BuyConsumableForSilver(ConsumableTypes consumableType)
+    public static Guid BuyConsumableForCoin(ConsumableTypes consumableType)
+    {
+        var guid = Guid.NewGuid();
+        _operationQueue.Enqueue(new OperationInfo
+        {
+            Guid = guid,
+            DateTime = DateTime.Now + TimeSpan.FromSeconds(3),
+            Type = "consumable-for-coin",
+            ConsumableType = consumableType,
+        });
+        return guid;
+    }
+    
+    public static Guid BuyConsumableForCredit(ConsumableTypes consumableType)
     {
         var guid = Guid.NewGuid();
         _operationQueue.Enqueue(new OperationInfo
@@ -166,19 +179,6 @@ public static class GameModel
             Guid = guid,
             DateTime = DateTime.Now + TimeSpan.FromSeconds(3),
             Type = "consumable-for-credit",
-            ConsumableType = consumableType,
-        });
-        return guid;
-    }
-    
-    public static Guid BuyConsumableForGold(ConsumableTypes consumableType)
-    {
-        var guid = Guid.NewGuid();
-        _operationQueue.Enqueue(new OperationInfo
-        {
-            Guid = guid,
-            DateTime = DateTime.Now + TimeSpan.FromSeconds(3),
-            Type = "consumable-for-gold",
             ConsumableType = consumableType,
         });
         return guid;

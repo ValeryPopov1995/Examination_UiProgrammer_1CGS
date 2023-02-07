@@ -124,6 +124,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3526088138014583362, guid: 6401f97113756bc4b835d03bbd90d901, type: 3}
+      propertyPath: <_type>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6295537873106022680, guid: 6401f97113756bc4b835d03bbd90d901, type: 3}
       propertyPath: m_Name
       value: View Popup -
