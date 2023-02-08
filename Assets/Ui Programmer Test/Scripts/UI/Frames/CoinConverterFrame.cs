@@ -4,13 +4,21 @@ using UnityEngine.UI;
 
 namespace UiProgrammerTest.Scripts.UI.Frames
 {
+    /// <summary>
+    /// Логика окна обмена валюты
+    /// </summary>
     internal class CoinConverterFrame : MonoBehaviour
     {
+        [Tooltip("Сколько кредитов игрок получит за 1 монету")]
         [SerializeField] private TextMeshProUGUI _convertCourseTextCredit;
+        [Tooltip("Место ввода монет для обмена")]
         [SerializeField] private TMP_InputField _inputField;
+        [Tooltip("Сколько кредитов получит игрок")]
         [SerializeField] private TextMeshProUGUI _potentialCredits;
         [SerializeField] private Button _buyButton;
         private int _convrtCoins;
+
+
 
         private void Awake()
         {
@@ -20,6 +28,7 @@ namespace UiProgrammerTest.Scripts.UI.Frames
             _inputField.onValueChanged.AddListener(ValidateInput);
             _buyButton.onClick.AddListener(Convert);
             GameModel.ModelChanged += ValidateInput;
+
             ValidateInput();
         }
 
@@ -29,6 +38,8 @@ namespace UiProgrammerTest.Scripts.UI.Frames
             _buyButton.onClick.RemoveListener(Convert);
             GameModel.ModelChanged -= ValidateInput;
         }
+
+
 
         private void ValidateInput() => ValidateInput(_inputField.text);
 

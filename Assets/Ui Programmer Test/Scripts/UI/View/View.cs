@@ -22,8 +22,11 @@ namespace UiProgrammerTest.Scripts.UI.Views
         /// </summary>
         private static event Action<View, bool> _onShowView;
 
-        [field: SerializeField] public ViewType _type { get; private set; } = ViewType.Window;
+        [field: SerializeField] public ViewType Type { get; private set; } = ViewType.Window;
         [SerializeField] private bool _hideOnStart = true;
+        /// <summary>
+        /// Дочерние объекты, реагирующие на открытие/закрытие окна
+        /// </summary>
         private IViewElement[] _iViewElements;
         private bool _isShown = true;
         
@@ -110,7 +113,7 @@ namespace UiProgrammerTest.Scripts.UI.Views
         /// <param name="hideOthers">Скрывать ли это окно при открытии другого</param>
         private void Hide(View openedView, bool hideOthers)
         {
-            if (this != openedView && _type == openedView._type && hideOthers) Hide();
+            if (this != openedView && Type == openedView.Type && hideOthers) Hide();
         }
     }
 }

@@ -3,7 +3,7 @@
 namespace UiProgrammerTest.Scripts.UI.Views
 {
     /// <summary>
-    /// Хранит последние закрытые окна для метод возврата на предыдущее окно
+    /// Хранит последние закрытые окна для метода возврата на предыдущее окно
     /// </summary>
     public class CoreView : MonoBehaviour
     {
@@ -29,7 +29,7 @@ namespace UiProgrammerTest.Scripts.UI.Views
         {
             LastHidenView = view;
 
-            if (view._type == View.ViewType.Window)
+            if (view.Type == View.ViewType.Window)
                 LastHidenViewWindow = view;
             else
                 LastHidenViewPopup = view;

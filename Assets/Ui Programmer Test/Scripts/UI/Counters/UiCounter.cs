@@ -6,13 +6,17 @@ using UnityEngine.Events;
 namespace UiProgrammerTest.Scripts.UI.Counters
 {
     /// <summary>
-    /// Отображает числовое значение
+    /// UI анимированный счетчик целочисленных значений
     /// </summary>
     public abstract class UiCounter : MonoBehaviour
     {
+        /// <summary>
+        /// Источник целевого значения
+        /// </summary>
         protected abstract int Value { get; }
 
         [SerializeField] private TextMeshProUGUI _text;
+        [Tooltip("Время, за которое текущее значение достигнет целевого")]
         [SerializeField, Min(1)] private float _animationDuration = 1.2f;
         private int _targetValue;
         private int _currentValue;
@@ -22,14 +26,12 @@ namespace UiProgrammerTest.Scripts.UI.Counters
 
         protected virtual void Start()
         {
-            // set value immidiatly
-            _targetValue = _currentValue = Value;
-            _text.text = Value.ToString();
+            SetValueImmidiatly();
         }
 
         private void OnEnable()
         {
-            StartCoroutine(CountCoroutine());
+            SetValueImmidiatly();
         }
 
         private void OnDisable()
@@ -61,6 +63,12 @@ namespace UiProgrammerTest.Scripts.UI.Counters
             StartCoroutine(CountCoroutine());
 
             OnStartSetValueFx?.Invoke();
+        }
+
+        private void SetValueImmidiatly()
+        {
+            _targetValue = _currentValue = Value;
+            _text.text = Value.ToString();
         }
 
         private IEnumerator CountCoroutine()

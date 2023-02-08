@@ -1,5 +1,8 @@
 ﻿namespace UiProgrammerTest.Scripts.UI.Counters
 {
+    /// <summary>
+    /// UI счетчик монет
+    /// </summary>
     public class CoinsUiCounter : UiCounter
     {
         protected override int Value => GameModel.CoinCount;

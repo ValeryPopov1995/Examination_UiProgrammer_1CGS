@@ -3,7 +3,10 @@ using UnityEngine;
 
 namespace UiProgrammerTest.Scripts.UI.Buttons
 {
-    internal class BuyUiButtonForCredit : UiButton
+    /// <summary>
+    /// Кнопка покупки Резервов за кредиты
+    /// </summary>
+    internal class BuyReserveUiButtonForCredit : UiButton
     {
         [SerializeField] private GameModel.ConsumableTypes _type;
         [SerializeField] private TextMeshProUGUI _textCreditPrice;

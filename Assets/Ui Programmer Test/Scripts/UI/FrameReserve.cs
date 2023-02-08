@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace UiProgrammerTest.Scripts.UI
 {
+    /// <summary>
+    /// UI окошко в составе окна, отображает количество указанного Резерва
+    /// </summary>
     public class FrameReserve : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI _textCount;
@@ -10,7 +13,7 @@ namespace UiProgrammerTest.Scripts.UI
 
 
 
-        private void Start()
+        private void Awake()
         {
             UpdateReserveCount();
 
